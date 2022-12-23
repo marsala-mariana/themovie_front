@@ -1,0 +1,17 @@
+.parrafo {
+  color: black;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.tarjeta {
+  margin-left: 81px;
+  margin-right: 81px;
+  border-left-width: 12px;
+  border-right-width: 12px;
+}
+
+.cardtitu {
+  color: white;
+  margin-top: 49px;
+}
