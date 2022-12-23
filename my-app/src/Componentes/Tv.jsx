@@ -1,61 +1,67 @@
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-import React, { useContext } from "react";
-import { BusquedaContext } from "../Contexts/BusquedaEncontrada";
-import "../Style/PeliEncontrada.css";
 
-const PeliEncontrada = () => {
-  const { busquedaProp } = useContext(BusquedaContext);
-
+const Tv = () => {
+  const [tv, setTv] = useState([]);
   const usuario = JSON.parse(localStorage.getItem("user")) || {};
 
-  const handleSubmit = (data) => {
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/discover/tv?api_key=e6b47ec00815f9556edf09df2987c8f0&language=en-US"
+      )
+      .then((res) => res.data)
+      .then((pro) => setTv(pro.results))
+      .catch(() => console.log("Error"));
+  }, []);
+
+  const handleSubmit = (info) => {
     axios
       .post(`http://localhost:3001/api/favorito/agregar/${usuario.id}`, {
         idUsuario: usuario.id,
-        idPelicula: data.id,
-        nombre: data.title,
-        imagen: data.backdrop_path,
+        idPelicula: info.id,
+        nombre: info.name,
+        imagen: info.backdrop_path,
       })
-      .then(() => alert("Pelicula AGREGADA A FAVORITOS"))
+      .then(() => alert("Programa de Tv Agregado a Favoritos "))
       .catch((error) => console.log(error, "error"));
   };
 
-  console.log(busquedaProp, "PROP");
   return (
     <div className="container">
       <div className="card ">
         <div className="card-body">
           <ul class="list-group list-group-flush">
-            {busquedaProp.map((data) => {
+            {tv.map((info) => {
               return (
                 <div class="card">
                   <img
                     src={
                       "https://image.tmdb.org/t/p/original/" +
-                      data.backdrop_path
+                      info.backdrop_path
                     }
                     class="card-img-top"
                     alt="peli"
                   />
                   <div class="card-body">
                     <p className="card-text" class="parrafo">
-                      {data.title}
+                      {info.name}
                     </p>
                     <p className="card-text" class="parrafo">
-                      {data.overview}
+                      {info.overview}
                     </p>
                     <p className="card-text" class="parrafo">
-                      {data.vote_average}
+                      Original Language: {info.original_language}
                     </p>
                     <p className="card-text" class="parrafo">
-                      {data.origin_language}
+                      Popularity: {info.popularity}
                     </p>
-                    <p className="card-text" class="parrafo">
-                      {data.release_date} {data.adult}
-                    </p>
+
                     <button
                       className="btn btn-outline-warning "
-                      onClick={() => handleSubmit(data)}
+                      onClick={() => handleSubmit(info)}
                     >
                       ⭐
                     </button>
@@ -70,4 +76,4 @@ const PeliEncontrada = () => {
   );
 };
 
-export default PeliEncontrada;
+export default Tv;

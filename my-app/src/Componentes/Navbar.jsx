@@ -20,7 +20,7 @@ const Navbar = () => {
     e.preventDefault();
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=e6b47ec00815f9556edf09df2987c8f0&query=${input}`
+        `https://api.themoviedb.org/3/search/multi?api_key=e6b47ec00815f9556edf09df2987c8f0&query=${input}`
       )
       .then((res) => res.data)
       .then((peli) => setBusquedaProp(peli.results))
@@ -55,6 +55,15 @@ const Navbar = () => {
                   href="http://localhost:3000/"
                 >
                   Peliculas
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="http://localhost:3000/tv"
+                >
+                  Programas de Tv
                 </a>
               </li>
 

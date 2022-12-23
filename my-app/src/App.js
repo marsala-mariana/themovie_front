@@ -8,6 +8,7 @@ import Login from "./Componentes/Login";
 import Navbar from "./Componentes/Navbar";
 import PeliEncontrada from "./Componentes/PeliEncontrada";
 import Registro from "./Componentes/Registro";
+import Tv from "./Componentes/Tv";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/busqueda" element={<PeliEncontrada />} />
         <Route path="/favoritos" element={<Favoritos />} />
-        <Route path="/detalles" element={<Detalles />} />
+        <Route path="/detalles/:id" element={<Detalles />} />
+        <Route path="/tv" element={<Tv />} />
       </Routes>
     </div>
   );

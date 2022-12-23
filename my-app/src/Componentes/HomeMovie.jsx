@@ -27,6 +27,7 @@ const HomeMovie = ({ movie }) => {
     marginTop: "5px",
   };
 
+  // console.log(movie, " movie");
   return (
     <div className="col-md-4 card text-center">
       <div className="card " class="car">
@@ -46,7 +47,7 @@ const HomeMovie = ({ movie }) => {
               ⭐
             </button>
           </Link>
-          <Link to="/detalles">
+          <Link to={`/detalles/${movie.id}`}>
             <button className="btn btn-outline-warning">Detalle</button>
           </Link>
         </div>

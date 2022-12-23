@@ -20,7 +20,6 @@ const Home = () => {
       .catch(() => console.log("Error"));
   }, []);
 
-  //console.log(movies, "M");
   return (
     <div className="container ">
       {movies.map((movie) => {

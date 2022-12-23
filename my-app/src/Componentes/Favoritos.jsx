@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Style/Favoritos.css";
 
 const Favoritos = () => {
@@ -31,11 +31,7 @@ const Favoritos = () => {
 
   return (
     <div>
-      <div className="card">
-        <div className="card-body">
-          <h4> ⭐ MIS FAVORITOS</h4>
-        </div>
-      </div>
+      <h4 class="texto"> ⭐ MIS FAVORITOS</h4>
 
       <div className="card" class="favtar">
         <div className="card-body">

@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useInput from "../Hooks/useInput";
+import "../Style/Registro.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,11 +28,12 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <main className="form-signin">
         <form className="row" onSubmit={handleSubmit}>
           <h1> Por favor ingresa</h1>
-          <div className="form-floating">
+          <div className="mb-3">
+            <label for="floatingInput">Correo electrónico :</label>
             <input
               type="email"
               className="form-control"
@@ -39,9 +41,9 @@ const Login = () => {
               placeholder="Escribi tu email"
               {...email}
             />
-            <label for="floatingInput">Correo electrónico :</label>
           </div>
-          <div className="form-floating">
+          <div className="mb-3">
+            <label for="floatingInput">Contraseña:</label>
             <input
               type="password"
               className="form-control"
@@ -49,9 +51,8 @@ const Login = () => {
               placeholder="Escribi tu contraseña"
               {...contraseña}
             />
-            <label for="floatingInput">Contraseña:</label>
           </div>
-          <button type="submit" class="w-100 btn btn-lg btn-primary">
+          <button type="submit" class="w-100 btn btn-warning">
             Ingesar
           </button>
         </form>

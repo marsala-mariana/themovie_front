@@ -2,6 +2,7 @@ import React from "react";
 import useInput from "../Hooks/useInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../Style/Registro.css";
 
 const Registro = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Registro = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <main className="form-signin">
         <form className="row" onSubmit={handleSubmit}>
           <div className="Auto">
@@ -60,7 +61,7 @@ const Registro = () => {
             />
           </div>
 
-          <button type="submit" class="w-100 btn btn-lg btn-primary">
+          <button type="submit" class="w-100 btn btn-warning">
             Enviar
           </button>
         </form>
